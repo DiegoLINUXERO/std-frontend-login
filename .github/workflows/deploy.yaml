@@ -20,12 +20,12 @@ jobs:
       - name: Descargar Repositorio
         uses: actions/checkout@v4
         
-      - name: Cache Dependencies
-        uses: actions/cache@v4
-        id: cache-node-modules
-        with:
-          path: 'app/node_modules'
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('app/package*.json') }}-${{ hashFiles('.github/workflows/deploy.yaml') }}
+      # - name: Cache Dependencies
+      #   uses: actions/cache@v4
+      #   id: cache-node-modules
+      #   with:
+      #     path: 'app/node_modules'
+      #     key: ${{ runner.os }}-node_modules-${{ hashFiles('app/package*.json') }}-${{ hashFiles('.github/workflows/deploy.yaml') }}
 
       - name: Use Node.js 18.x
         uses: actions/setup-node@v4
@@ -33,7 +33,7 @@ jobs:
           node-version: 18.x
 
       - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        # if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm install
         working-directory: ./app
 
