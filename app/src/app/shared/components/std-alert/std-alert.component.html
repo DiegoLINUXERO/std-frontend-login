@@ -1,0 +1,13 @@
+<div class="flex items-center gap-2 p-4 border rounded-lg border-{{type}} bg-{{type}}-light">
+  <div class="shrink-0 flex items-center">
+    <i 
+      class="text-2xl leading-none text-{{type}}"
+      [class.icon-alert-2]="type === 'warning'"
+      [class.icon-alert]="type === 'error'"
+    ></i>
+  </div>
+  <div class="flex-1 text-sm">
+    <ng-content></ng-content>
+  </div>
+</div>
+

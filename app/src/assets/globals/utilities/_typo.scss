@@ -1,0 +1,330 @@
+@import "../mixins/index";
+@import "../variables/index";
+
+// Colors
+.std-color-p {
+  color: $std-color-primary;
+}
+
+.std-color-s-1 {
+  color: $std-color-secondary-1;
+}
+
+.std-color-s-2 {
+  color: $std-color-secondary-2;
+}
+
+.std-color-h-1 {
+  color: $std-color-highlight-1;
+}
+
+.std-color-h-1-light {
+  color: $std-color-highlight-1-light;
+}
+
+.std-color-h-1-dark {
+  color: $std-color-highlight-1-dark;
+}
+
+.std-color-h-2 {
+  color: $std-color-highlight-2;
+}
+
+.std-color-h-2-light {
+  color: $std-color-highlight-2-light;
+}
+
+.std-color-h-2-dark {
+  color: $std-color-highlight-2-dark;
+}
+
+.std-color-h-3 {
+  color: $std-color-highlight-3;
+}
+
+.std-color-h-3-light {
+  color: $std-color-highlight-3-light;
+}
+
+.std-color-h-3-dark {
+  color: $std-color-highlight-3-dark;
+}
+
+.std-color-h-4 {
+  color: $std-color-highlight-4;
+}
+
+.std-color-h-4-light {
+  color: $std-color-highlight-4-light;
+}
+
+.std-color-h-4-dark {
+  color: $std-color-highlight-4-dark;
+}
+
+.std-color-h-5 {
+  color: $std-color-highlight-5;
+}
+
+.std-color-h-5-light {
+  color: $std-color-highlight-5-light;
+}
+
+.std-color-h-5-dark {
+  color: $std-color-highlight-5-dark;
+}
+
+.std-color-gray-10 {
+  color: $std-color-gray-10;
+}
+
+.std-color-gray-20 {
+  color: $std-color-gray-20;
+}
+
+.std-color-gray-30 {
+  color: $std-color-gray-30;
+}
+
+.std-color-gray-40 {
+  color: $std-color-gray-40;
+}
+
+.std-color-gray-50 {
+  color: $std-color-gray-50;
+}
+
+.std-color-gray-60 {
+  color: $std-color-gray-60;
+}
+
+.std-color-gray-70 {
+  color: $std-color-gray-70;
+}
+
+.std-color-gray-80 {
+  color: $std-color-gray-80;
+}
+
+.std-color-gray-90 {
+  color: $std-color-gray-90;
+}
+
+.std-color-gray-100 {
+  color: $std-color-gray-100;
+}
+
+// TYPO
+.std-typo {
+  font-family: "Santander";
+}
+
+.std-typo-bd {
+  font-family: "Santander Bold";
+}
+
+.std-typo-it {
+  font-family: "Santander Italic";
+}
+
+.std-typo-lt {
+  font-family: "Santander Light";
+}
+
+.std-typo-bd-it {
+  font-family: "Santander Bold Italic";
+}
+
+.std-typo-lt-it {
+  font-family: "Santander Light Italic";
+}
+
+.std-typo-micro-bd-it {
+  font-family: "Santander Micro Bold Italic";
+}
+
+.std-typo-micro {
+  font-family: "Santander Micro";
+}
+
+.std-typo-micro-bd {
+  font-family: "Santander Micro Bold";
+}
+
+.std-typo-micro-lt-it {
+  font-family: "Santander Micro Light Italic";
+}
+
+.std-typo-micro-it {
+  font-family: "Santander Micro Italic";
+}
+
+.std-typo-micro-lt {
+  font-family: "Santander Micro Light";
+}
+
+.std-typo-micro-semiBd-it {
+  font-family: "Santander Micro SemiBd Italic";
+}
+
+.std-typo-micro-semiBd {
+  font-family: "Santander Micro SemiBd";
+}
+
+.std-typo-micro-ExtraBd {
+  font-family: "Santander Micro ExtraBd";
+}
+
+.std-typo-micro-ExtraBd-it {
+  font-family: "Santander Micro ExtraBd Italic";
+}
+
+// Deprecated Fonts (only for future references)
+
+.std-typo-f-t-regular {
+  font-family: "Telefonica";
+}
+
+.std-typo-f-t-bold {
+  font-family: "Telefonica Bold";
+}
+
+.std-typo-f-t-light {
+  font-family: "Telefonica Light";
+}
+
+.std-typo-f-t-extralight {
+  font-family: "Telefonica ExtraLight";
+}
+
+.std-typo-f-t-cap {
+  font-family: "Telefonica Cap";
+}
+
+.std-typo-f-t-italic {
+  font-family: "Telefonica Italic";
+}
+
+.std-typo-h-1 {
+  font-family: "Telefonica ExtraLight";
+  @include typo(
+    $std-typo-headline-1-font-size,
+    $std-typo-headline-1-line-height,
+    $std-typo-headline-1-weight,
+    $std-typo-headline-1-letter-spacing
+  );
+}
+
+.std-typo-h-2 {
+  font-family: "Telefonica ExtraLight";
+  @include typo(
+    $std-typo-headline-2-font-size,
+    $std-typo-headline-2-line-height,
+    $std-typo-headline-2-weight,
+    $std-typo-headline-2-letter-spacing
+  );
+}
+
+.std-typo-h-3 {
+  font-family: "Telefonica ExtraLight";
+  @include typo(
+    $std-typo-headline-3-font-size,
+    $std-typo-headline-3-line-height,
+    $std-typo-headline-3-weight,
+    $std-typo-headline-3-letter-spacing
+  );
+}
+
+.std-typo-h-4 {
+  font-family: "Telefonica Light";
+  @include typo(
+    $std-typo-headline-4-font-size,
+    $std-typo-headline-4-line-height,
+    $std-typo-headline-4-weight,
+    $std-typo-headline-4-letter-spacing
+  );
+}
+
+.std-typo-h-5 {
+  font-family: "Telefonica Light";
+  @include typo(
+    $std-typo-headline-5-font-size,
+    $std-typo-headline-5-line-height,
+    $std-typo-headline-5-weight,
+    $std-typo-headline-5-letter-spacing
+  );
+}
+
+.std-typo-h-6 {
+  font-family: "Telefonica";
+  @include typo(
+    $std-typo-headline-6-font-size,
+    $std-typo-headline-6-line-height,
+    $std-typo-headline-6-weight,
+    $std-typo-headline-6-letter-spacing
+  );
+}
+
+.std-typo-b-1 {
+  @include typo(
+    $std-typo-body-1-font-size,
+    $std-typo-body-1-line-height,
+    $std-typo-body-1-weight,
+    $std-typo-body-1-letter-spacing
+  );
+}
+
+.std-typo-b-2 {
+  @include typo(
+    $std-typo-body-2-font-size,
+    $std-typo-body-2-line-height,
+    $std-typo-body-2-weight,
+    $std-typo-body-2-letter-spacing
+  );
+}
+
+.std-typo-b-3 {
+  @include typo(
+    $std-typo-body-3-font-size,
+    $std-typo-body-3-line-height,
+    $std-typo-body-3-weight,
+    $std-typo-body-3-letter-spacing
+  );
+}
+
+.std-typo-c {
+  @include typo(
+    $std-typo-caption-font-size,
+    $std-typo-caption-line-height,
+    $std-typo-caption-weight,
+    $std-typo-caption-letter-spacing
+  );
+}
+
+.std-typo-k {
+  @include typo(
+    $std-typo-kickers-font-size,
+    $std-typo-kickers-line-height,
+    $std-typo-kickers-weight,
+    $std-typo-kickers-letter-spacing,
+    $std-typo-kickers-transform
+  );
+}
+
+.std-typo-s {
+  @include typo(
+    $std-typo-small-font-size,
+    $std-typo-small-line-height,
+    $std-typo-small-weight,
+    $std-typo-small-letter-spacing
+  );
+}
+
+.std-typo-xs {
+  @include typo(
+    $std-typo-extra-small-font-size,
+    $std-typo-extra-small-line-height,
+    $std-typo-extra-small-weight,
+    $std-typo-extra-small-letter-spacing
+  );
+}

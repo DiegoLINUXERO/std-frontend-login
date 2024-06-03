@@ -1,0 +1,168 @@
+@import '../variables/index';
+@import "../grid-system/functions";
+@import '../grid-system/variables';
+
+:root {
+    // color
+    --std-color-primary: #{ $std-color-primary };
+    --std-color-secondary-1: #{ $std-color-secondary-1 };
+    --std-color-secondary-2: #{ $std-color-secondary-2 };
+    --std-color-highlight-1: #{ $std-color-highlight-1 };
+    --std-color-highlight-1-light: #{ $std-color-highlight-1-light };
+    --std-color-highlight-1-dark: #{ $std-color-highlight-1-dark };
+    --std-color-highlight-2: #{ $std-color-highlight-2 };
+    --std-color-highlight-2-light: #{ $std-color-highlight-2-light };
+    --std-color-highlight-2-dark: #{ $std-color-highlight-2-dark };
+    --std-color-highlight-3: #{ $std-color-highlight-3 };
+    --std-color-highlight-3-light: #{ $std-color-highlight-3-light };
+    --std-color-highlight-3-dark: #{ $std-color-highlight-3-dark };
+    --std-color-highlight-4: #{ $std-color-highlight-4 };
+    --std-color-highlight-4-light: #{ $std-color-highlight-4-light };
+    --std-color-highlight-4-dark: #{ $std-color-highlight-4-dark };
+    --std-color-highlight-5: #{ $std-color-highlight-5 };
+    --std-color-highlight-5-light: #{ $std-color-highlight-5-light };
+    --std-color-highlight-5-dark: #{ $std-color-highlight-5-dark };
+    --std-color-gray-10: #{ $std-color-gray-10 };
+    --std-color-gray-20: #{ $std-color-gray-20 };
+    --std-color-gray-30: #{ $std-color-gray-30 };
+    --std-color-gray-40: #{ $std-color-gray-40 };
+    --std-color-gray-50: #{ $std-color-gray-50 };
+    --std-color-gray-60: #{ $std-color-gray-60 };
+    --std-color-gray-70: #{ $std-color-gray-70 };
+    --std-color-gray-80: #{ $std-color-gray-80 };
+    --std-color-gray-90: #{ $std-color-gray-90 };
+    --std-color-gray-100: #{ $std-color-gray-100 };
+    // design system: breakpoints
+    --std-breakpoint-sm: #{ $std-breakpoint-sm };
+    --std-breakpoint-md: #{ $std-breakpoint-md };
+    --std-breakpoint-lg: #{ $std-breakpoint-lg };
+    --std-breakpoint-xl: #{ $std-breakpoint-xl };
+    --std-breakpoint-xxl: #{ $std-breakpoint-xxl };
+    // design system: containers: max-width
+    --std-max-width-sm: #{ $std-max-width-sm };
+    --std-max-width-md: #{ $std-max-width-md };
+    --std-max-width-lg: #{ $std-max-width-lg };
+    --std-max-width-xl: #{ $std-max-width-xl };
+    --std-max-width-xxl: #{ $std-max-width-xxl };
+    // shape
+    --std-border-radius-squared: #{ $std-border-radius-squared };
+    --std-border-radius-capsule: #{ $std-border-radius-capsule };
+    --std-border-radius-capsule-left: #{ $std-border-radius-capsule-left };
+    --std-border-radius-capsule-right: #{ $std-border-radius-capsule-right };
+    --std-border-radius-lg: #{ $std-border-radius-lg };
+    --std-border-radius-sm: #{ $std-border-radius-sm };
+    --std-border-radius-xs: #{ $std-border-radius-xs };
+    --std-border-1: #{ $std-border-1 };
+    --std-border-2: #{ $std-border-2 };
+
+    // Dimensiones
+    --std-control-height-md: #{ $std-control-height-md };
+    --std-control-height-sm: #{ $std-control-height-sm };
+
+    // fonts
+    --std-control-font-size-md: #{ $std-control-font-size-md };
+    --std-control-font-size-sm: #{ $std-control-font-size-sm };
+
+    // Input state
+    --std-state-control-inactive: #{ $std-state-control-inactive };
+    --std-state-control-hover: #{ $std-state-control-hover };
+    --std-state-control-completed: #{ $std-state-control-completed };
+    --std-state-control-focused: #{ $std-state-control-focused };
+    --std-state-control-success: #{ $std-state-control-success };
+    --std-state-control-error: #{ $std-state-control-error };
+    --std-state-control-warning: #{ $std-state-control-warning };
+    --std-state-control-disabled: #{ $std-state-control-disabled };
+    --std-state-control-background-disabled: #{ $std-state-control-background-disabled };
+    --std-state-control-blocked: #{ $std-state-control-blocked };
+
+    //Text state
+    --std-state-text-disabled: #{ $std-state-text-disabled };
+    --std-state-text-blocked: #{ $std-state-text-blocked };
+    --std-state-text-normal: #{ $std-state-text-normal };
+
+    // Bg State
+    --std-state-bg-hover-light: #{ $std-state-bg-hover-light };
+    --std-state-bg-hover-dark: #{ $std-state-bg-hover-dark };
+    --std-state-bg-focus-light: #{ $std-state-bg-focus-light };
+    --std-state-bg-focus-dark: #{ $std-state-bg-focus-dark };
+    --std-state-bg-selected-light: #{ $std-state-bg-selected-light };
+    --std-state-bg-selected-dark: #{ $std-state-bg-selected-dark };
+    --std-state-bg-activated-light: #{ $std-state-bg-activated-light };
+    --std-state-bg-activated-dark: #{ $std-state-bg-activated-dark };
+    --std-state-bg-pressed-light: #{ $std-state-bg-pressed-light };
+    --std-state-bg-pressed-dark: #{ $std-state-bg-pressed-dark };
+    --std-state-bg-dragged-light: #{ $std-state-bg-dragged-light };
+    --std-state-bg-dragged-dark: #{ $std-state-bg-dragged-dark };
+
+    // Headline
+    --std-typo-headline-1-font-size: #{ $std-typo-headline-1-font-size };
+    --std-typo-headline-1-line-height: #{ $std-typo-headline-1-line-height };
+    --std-typo-headline-1-weight: #{ $std-typo-headline-1-weight };
+    --std-typo-headline-1-letter-spacing: #{ $std-typo-headline-1-letter-spacing };
+
+    --std-typo-headline-2-font-size: #{ $std-typo-headline-2-font-size };
+    --std-typo-headline-2-line-height: #{ $std-typo-headline-2-line-height };
+    --std-typo-headline-2-weight: #{ $std-typo-headline-2-weight };
+    --std-typo-headline-2-letter-spacing: #{ $std-typo-headline-2-letter-spacing };
+
+    --std-typo-headline-3-font-size: #{ $std-typo-headline-3-font-size };
+    --std-typo-headline-3-line-height: #{ $std-typo-headline-3-line-height };
+    --std-typo-headline-3-weight: #{$std-typo-headline-3-weight };
+    --std-typo-headline-3-letter-spacing: #{ $std-typo-headline-3-letter-spacing };
+
+    --std-typo-headline-4-font-size: #{ $std-typo-headline-4-font-size };
+    --std-typo-headline-4-line-height: #{ $std-typo-headline-4-line-height };
+    --std-typo-headline-4-weight: #{ $std-typo-headline-4-weight };
+    --std-typo-headline-4-letter-spacing: #{ $std-typo-headline-4-letter-spacing };
+
+    --std-typo-headline-5-font-size: #{ $std-typo-headline-5-font-size };
+    --std-typo-headline-5-line-height: #{ $std-typo-headline-5-line-height };
+    --std-typo-headline-5-weight: #{ $std-typo-headline-5-weight };
+    --std-typo-headline-5-letter-spacing: #{ $std-typo-headline-5-letter-spacing };
+
+    --std-typo-headline-6-font-size: #{ $std-typo-headline-6-font-size };
+    --std-typo-headline-6-line-height: #{ $std-typo-headline-6-line-height };
+    --std-typo-headline-6-weight: #{ $std-typo-headline-6-weight };
+    --std-typo-headline-6-letter-spacing: #{ $std-typo-headline-6-letter-spacing };
+
+    // Body
+    --std-typo-body-1-font-size: #{ $std-typo-body-1-font-size };
+    --std-typo-body-1-line-height: #{ $std-typo-body-1-line-height };
+    --std-typo-body-1-weight: #{ $std-typo-body-1-weight };
+    --std-typo-body-1-letter-spacing: #{ $std-typo-body-1-letter-spacing };
+
+    --std-typo-body-2-font-size: #{ $std-typo-body-2-font-size };
+    --std-typo-body-2-line-height: #{ $std-typo-body-2-line-height };
+    --std-typo-body-2-weight: #{ $std-typo-body-2-weight };
+    --std-typo-body-2-letter-spacing: #{ $std-typo-body-2-letter-spacing };
+
+    --std-typo-body-3-font-size: #{ $std-typo-body-3-font-size };
+    --std-typo-body-3-line-height: #{ $std-typo-body-3-line-height };
+    --std-typo-body-3-weight: #{ $std-typo-body-3-weight };
+    --std-typo-body-3-letter-spacing: #{ $std-typo-body-3-letter-spacing };
+
+    // kickers
+    --std-typo-kickers-font-size: #{ $std-typo-kickers-font-size };
+    --std-typo-kickers-line-height: #{ $std-typo-kickers-line-height };
+    --std-typo-kickers-weight: #{ $std-typo-kickers-weight };
+    --std-typo-kickers-letter-spacing: #{ $std-typo-kickers-letter-spacing };
+    --std-typo-kickers-transform: #{ $std-typo-kickers-transform };
+
+    // Caption
+    --std-typo-caption-font-size: #{ $std-typo-caption-font-size };
+    --std-typo-caption-line-height: #{ $std-typo-caption-line-height };
+    --std-typo-caption-weight: #{ $std-typo-caption-weight };
+    --std-typo-caption-letter-spacing: #{ $std-typo-caption-letter-spacing };
+
+    // Small
+    --std-typo-small-font-size: #{ $std-typo-small-font-size };
+    --std-typo-small-line-height: #{ $std-typo-small-line-height };
+    --std-typo-small-weight: #{ $std-typo-small-weight };
+    --std-typo-small-letter-spacing: #{ $std-typo-small-letter-spacing };
+
+    // Extra Small
+    --std-typo-extra-small-font-size: #{ $std-typo-extra-small-font-size };
+    --std-typo-extra-small-line-height: #{ $std-typo-extra-small-line-height };
+    --std-typo-extra-small-weight: #{ $std-typo-extra-small-weight };
+    --std-typo-extra-small-letter-spacing: #{ $std-typo-extra-small-letter-spacing };
+}

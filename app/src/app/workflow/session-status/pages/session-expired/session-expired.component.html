@@ -1,0 +1,17 @@
+<div class="flex flex-col items-center justify-center gap-8 h-screen">
+  <picture>
+    <img class="w-full h-full object-cover object-center" src="assets/images/svg/illustration1.svg">
+  </picture>
+
+  <div class="flex flex-col items-center justify-center gap-4 px-6 text-center">
+    <h2 class="font-bold lg:font-normal text-xl leading-6 lg:text-[42px] lg:leading-tight">
+      Tu sesión ha expirado
+    </h2>
+    <p class="text-base leading-6">
+      Por favor, vuelve a iniciar sesión para continuar.
+    </p>
+    <button (click)="goToLogin()" class="inline-flex justify-center items-center font-bold rounded-full transition-all duration-300 ease-in-out bg-primary text-white hover:bg-primary-dark gap-1 min-w-36 px-5 py-3" aria-label="Iniciar sesión">
+      <span>Iniciar sesión</span>
+    </button>
+  </div>
+</div>

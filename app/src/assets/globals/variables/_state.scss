@@ -1,0 +1,32 @@
+@import './colors';
+
+// Input state
+$std-state-control-inactive: $std-color-gray-40;
+$std-state-control-hover: $std-color-gray-50;
+$std-state-control-completed: $std-color-primary;
+$std-state-control-focused: $std-color-primary;
+$std-state-control-success: $std-color-highlight-1;
+$std-state-control-error: $std-color-highlight-3;
+$std-state-control-warning: $std-color-highlight-5;
+$std-state-control-disabled: $std-color-gray-30;
+$std-state-control-background-disabled: $std-color-gray-20;
+$std-state-control-blocked: $std-color-gray-40;
+
+//Text state
+$std-state-text-disabled: $std-color-gray-50;
+$std-state-text-blocked: $std-color-gray-70;
+$std-state-text-normal: $std-color-gray-70;
+
+// Bg State
+$std-state-bg-hover-light: rgba($std-color-primary, 0.08);
+$std-state-bg-hover-dark: rgba($std-color-secondary-1, 0.08);
+$std-state-bg-focus-light: rgba($std-color-primary, 0.12);
+$std-state-bg-focus-dark: rgba($std-color-secondary-1, 0.24);
+$std-state-bg-selected-light: rgba($std-color-primary, 0.08);
+$std-state-bg-selected-dark: rgba($std-color-secondary-1, 0.16);
+$std-state-bg-activated-light: rgba($std-color-primary, 0.12);
+$std-state-bg-activated-dark: rgba($std-color-secondary-1, 0.24);
+$std-state-bg-pressed-light: rgba($std-color-primary, 0.16);
+$std-state-bg-pressed-dark: rgba($std-color-secondary-1, 0.32);
+$std-state-bg-dragged-light: rgba($std-color-primary, 0.08);
+$std-state-bg-dragged-dark: rgba($std-color-secondary-1, 0.16);

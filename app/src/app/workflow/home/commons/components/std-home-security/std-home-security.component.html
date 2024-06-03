@@ -1,0 +1,16 @@
+<std-modal [show]="showModal" size="m">
+  <div class="flex flex-col gap-4 w-full text-center">
+    <i class="icon-time text-primary text-4xl"></i>
+    <h2 class="font-bold text-2xl">Tu sesión está por expirar</h2>
+    <p>
+      Por inactividad y para garantizar tu seguridad, tu sesión expirará en:
+      <br>
+      <span class="font-headline font-bold">04:59</span>
+    </p>
+  </div>
+
+  <div slot="footer" class="w-full flex justify-center gap-6">
+    <std-button label="Cerrar sesión" type="secondary" (clickEvent)="closeSession()"></std-button>
+    <std-button label="Seguir aquí" type="primary" (clickEvent)="closeModal()"></std-button>
+  </div>
+</std-modal>

@@ -1,0 +1,39 @@
+.std-tooltip {
+    &.mdc-tooltip.mat-mdc-tooltip {
+        .mdc-tooltip__surface {
+            background-color: #ffffff;
+            color: #222222;
+            border-radius: 16px;
+            box-shadow: 1px 1px 10px #A3A3A3;
+            padding: 24px;
+            text-align: center;
+
+            line-height: 20px;
+            font-size: 14px;
+            width: 300px;
+            max-width: 300px;
+        }
+    }
+}
+
+.mdc1-tooltip {
+    // to make possible place arrow pseudo element outside tooltip with absolute positioning
+    overflow: visible;
+    position: relative;
+    
+        border-left: 6px solid #ffffff;
+        margin-left: 5px;
+        &::before {
+            position: absolute;
+            content: '';
+            display: inline-block;
+            background-color: red;
+            clip-path: polygon(50% 0, 0 50%, 50% 100%);
+            left: -12px;
+            width: 15px;
+            height: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    
+}

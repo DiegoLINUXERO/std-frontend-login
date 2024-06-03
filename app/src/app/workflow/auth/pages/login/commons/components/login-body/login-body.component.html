@@ -1,0 +1,137 @@
+<div class="px-4 py-8 lg:px-6 lg:pt-44 lg:pb-8">
+  <div class="flex flex-col gap-4 lg:gap-8 w-full max-w-lg mx-auto">
+    <h1 class="font-bold">
+      <span class="block text-3xl">¡Hola!</span>
+      <span class="block text-2xl">Te damos la bienvenida al nuevo Office Banking</span>
+    </h1>
+    <form [formGroup]="loginPresenter.form">
+      @if (caseShowAlert === 'reintend') {
+        <std-alert class="mb-20" status="warning">
+          <span [innerHTML]="msghowAlert"></span>
+        </std-alert>
+      } @if (caseShowAlert === 'blocked') {
+        <std-alert class="mb-20" status="error">
+          <span [innerHTML]="msghowAlert"></span>
+        </std-alert>
+      }
+
+      <div class="flex flex-col gap-6 lg:gap-8">
+        <div>
+          <div class="flex flex-col gap-1">
+            <std-input
+              label="Usuario"
+              name="username"
+              placeholder="Ingresa tu nombre de usuario"
+              formControlName="username"
+              [status]="loginPresenter.username.touched && loginPresenter.username.hasError('required') ? 'error' : 'default'"
+              [helperText]="loginPresenter.username.touched && loginPresenter.username.hasError('required') ? loginPresenter.errorsCatelogue.usernameControlErrors.required : ''"
+            ></std-input>
+          </div>
+        </div>
+        <div>
+          <std-checkbox
+            label="Recordar usuario"
+            name="rememberUser"
+            formControlName="rememberUser"
+          ></std-checkbox>
+        </div>
+        <div>
+          <div class="flex flex-col gap-1">
+            <std-input
+              label="Contraseña"
+              placeholder="Ingresa tu contraseña"
+              name="password"
+              [type]="visiblePassword ? 'text' : 'password'"
+              icon="icon-visibility-off"
+              formControlName="password"
+              [status]="loginPresenter.password.touched && loginPresenter.password.hasError('required') ? 'error' : 'default'"
+              [helperText]="loginPresenter.password.touched && loginPresenter.password.hasError('required') ? loginPresenter.errorsCatelogue.passwordControlErrors.required : ''"
+            ><div slot="tooltip">Si eres <strong>nuevo usuario</strong>, usa la contraseña temporal que enviamos a tu correo registrado. ¡Bienvenido!</div></std-input>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4 lg:gap-8">
+          <std-link
+            label="Recuperar contraseña"
+            (clickEvent)="recoverPassword()"
+          ></std-link>
+
+          <std-button
+            [label]="isLoginIn ? 'Autenticando' : 'Ingresar'"
+            (clickEvent)="onSubmit()"
+            [disabled]="loginPresenter.form.invalid || isLoginIn || disabledButton"
+            [loading]="isLoginIn"
+          ></std-button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+
+<!-- <form *ngIf="false" [formGroup]="loginPresenter.form"> -->
+  
+    <!-- <mat-icon matSuffix class="material-icons-outlined" (click)="togglePassword()" color="accent"> -->
+      <!-- {{ visiblePassword ? 'visibility_off' : 'visibility' }} -->
+    <!-- </mat-icon> -->
+
+  <!-- <button type="submit" [disabled]="loginPresenter.form.invalid || isLoginIn || disabledButton" -->
+    <!-- class="w-full std-button" mat-flat-button color="warn" (click)="onSubmit()"> -->
+    <!-- @if (isLoginIn) { -->
+    <!-- <mat-progress-spinner diameter="30" color="accent" mode="indeterminate"></mat-progress-spinner> -->
+    <!-- } @else { -->
+    <!-- <span>Ingresar</span> -->
+    <!-- } -->
+  <!-- </button> -->
+<!-- </form> -->
+
+
+
+<std-modal [show]="showModal" [size]="this.sizeModal" *ngIf="errorRetry == 2" #noLogin2AttemptsLeft>
+  <div class="flex flex-col gap-4 w-full text-center">
+    <h2 class="font-bold text-2xl">{{this.title}}</h2>
+    <p>El usuario y/o contraseña ingresados no coinciden.</p>
+    <p class="text-alternative">
+      <strong>Te quedan 2 intentos más.</strong><br />Ingresa tus datos
+      correctamente o se bloqueará tu acceso.
+  </div>
+    <div slot="footer" class="w-full flex justify-center">
+      <std-button label="Volver a intentar" (clickEvent)="closeModal()"></std-button>
+    </div>
+</std-modal>
+
+<std-modal [show]="showModal" [size]="this.sizeModal" *ngIf="errorRetry == 1" #noLogin1AttemptLeft>
+  <div class="flex flex-col gap-4 w-full text-center">
+    <h2 class="font-bold text-2xl">{{this.title}}</h2>
+    <p>El usuario y/o contraseña ingresados no coinciden.</p>
+    <p class="text-alternative">
+      <strong>Te queda 1 intento más.</strong><br />Ingresa tus datos
+      correctamente o se bloqueará tu acceso.
+  </div>
+    <div slot="footer" class="w-full flex justify-center">
+      <std-button label="Volver a intentar" (clickEvent)="closeModal()"></std-button>
+    </div>
+</std-modal>
+
+<std-modal [show]="showModal" [size]="this.sizeModal" *ngIf="errorRetry==-1 || codeError == 'ERR461' || codeError == 'ERR462' " #contactUs>
+  <div class="flex flex-col gap-4 w-full text-center">
+    <h2 class="font-bold text-2xl" *ngIf="!codeError">
+      ¡Lo sentimos!<br />Tu acceso ha sido bloqueado
+    </h2>
+    <h2 class="font-bold text-2xl" *ngIf="codeError">
+      ¡Lo sentimos!<br />Tu usuario está inhabilitado
+    </h2>
+    <p>
+      Comunícate con nuestro equipo de soporte al correo<br />
+      <strong>clientservice&#64;santander.com.pe</strong><br />¡Estamos aquí para
+      ayudarte!
+    </p>
+  </div>
+  <div slot="footer" class="w-full flex justify-center" *ngIf="!codeError">
+    <std-button label="Entendido" (clickEvent)="closeModal()"></std-button>
+  </div>
+  <div slot="footer" class="w-full flex justify-center" *ngIf="codeError">
+    <std-button label="Entiendo" (clickEvent)="closeModal()"></std-button>
+  </div>
+</std-modal>

@@ -1,0 +1,19 @@
+// Typo
+@mixin typo($f-z, $l-h, $f-w, $l-s, $t-t: none) {
+  font-size: $f-z;
+  line-height: $l-h;
+  font-weight: $f-w;
+  letter-spacing: $l-s;
+  text-transform: $t-t;
+}
+
+// Font Face
+@mixin fontface($name, $file, $weight: normal, $style: normal, $swap: swap) {
+  @font-face {
+    font-family: '#{$name}';
+    src: url('/assets/fonts/#{$file}.woff2') format('woff2'), url('/assets/fonts/#{$file}.woff') format('woff');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: $swap;
+  }
+}

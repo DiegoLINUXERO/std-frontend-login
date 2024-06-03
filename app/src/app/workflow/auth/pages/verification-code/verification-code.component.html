@@ -1,0 +1,45 @@
+<div class="flex flex-col justify-between min-h-screen pt-14 lg:pt-18">
+  <div>
+    <section class="flex flex-col gap-6 bg-alternative-light px-4 lg:px-6 py-8">
+      <div class="flex flex-col gap-4 max-w-4xl mx-auto text-center">
+        <h1 class="text-3xl font-bold">Crea tu contraseña</h1>
+        <p>Para activar tu cuenta en la plataforma, debes crear una contraseña segura</p>
+      </div>
+
+      <std-stepper [steps]="['Nueva contraseña', 'Código de verificación']" [step]="1"></std-stepper>
+    </section>
+    <section class="px-4 lg:px-6 pt-8 pb-20 lg:py-12">
+      <form [formGroup]="verificationCodePresenter.form">
+        <div class="flex flex-col gap-8 lg:gap-11 w-full max-w-xl mx-auto">
+          <std-alert class="mb-20" type="info">
+            <span>Hemos enviado el código de verificación al correo m********{{ '@' }}multiplica.com</span>
+          </std-alert>
+          <div class="flex flex-col gap-6 lg:gap-8">
+            <div class="flex flex-col gap-1 w-full max-w-[14.5rem] mx-auto">
+              <std-pin-input formControlName="pinCode"></std-pin-input>
+            </div>
+            <div>
+              <div class="flex flex-col items-center text-center">
+                <std-countdown
+                  formControlName="countdown"
+                  label="Este código expirará en"
+                  position="center"
+                ></std-countdown>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col items-center">
+            <std-button 
+              label="Finalizar" 
+              (clickEvent)="onClickFinalize()"
+              [disabled]="verificationCodePresenter.form.invalid"
+            ></std-button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+  <std-login-footer 
+    [centered]="true"
+  ></std-login-footer>
+</div>

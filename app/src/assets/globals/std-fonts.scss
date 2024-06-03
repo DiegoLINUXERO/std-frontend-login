@@ -1,0 +1,43 @@
+@mixin fontface($name, $file, $weight: normal, $style: normal, $swap: swap) {
+  @font-face {
+    font-family: '#{$name}';
+    src: url('/assets/fonts/#{$file}.woff2') format('woff2'), url('/assets/fonts/#{$file}.woff') format('woff');
+    font-weight: $weight;
+    font-style: $style;
+    font-display: $swap;
+  }
+}
+
+@include fontface('Santander Bold', 'SantanderHeadline-Bold');
+@include fontface('Santander Italic', 'SantanderHeadline-It');
+@include fontface('Santander Bold Italic', 'SantanderHeadline-BoldIt');
+@include fontface('Santander Light Italic', 'SantanderHeadlineLight-It');
+@include fontface('Santander Light', 'SantanderHeadlineLight');
+@include fontface('Santander', 'SantanderHeadline-Regular');
+
+@include fontface('Santander Micro Bold Italic', 'SantanderMicroText-BdIt');
+@include fontface('Santander Micro', 'SantanderMicroText');
+@include fontface('Santander Micro Bold', 'SantanderMicroText-Bd');
+@include fontface('Santander Micro Light Italic', 'SantanderMicroText-LtIt');
+@include fontface('Santander Micro Italic', 'SantanderMicroText-It');
+@include fontface('Santander Micro Light', 'SantanderMicroText-Lt');
+@include fontface('Santander Micro SemiBd Italic', 'SantanderMicroTextSmBd-It');
+@include fontface('Santander Micro SemiBd', 'SantanderMicroTextSemiBold');
+@include fontface('Santander Micro ExtraBd', 'SantanderMicroTextExtraBold');
+@include fontface('Santander Micro ExtraBd Italic', 'SantanderMicroTextXBd-It');
+
+@include fontface('Santander Text', 'SantanderText-Bold');
+@include fontface('Santander Text', 'SantanderText-Italic');
+@include fontface('Santander Text', 'SantanderText-BoldItalic');
+@include fontface('Santander Text', 'SantanderText-Light');
+@include fontface('Santander Text', 'SantanderText-LightItalic');
+@include fontface('Santander Text', 'SantanderText-Regular');
+@include fontface('Santander Text', 'SantanderTextSemiBold');
+@include fontface('Santander Text', 'SantanderTextSemiBold-It');
+@include fontface('Santander Text', 'SantanderTextExtraBold');
+@include fontface('Santander Text', 'SantanderTextExtraBold-It');
+
+body {
+  font-family: 'Santander', sans-serif;
+  margin: 0;
+}
