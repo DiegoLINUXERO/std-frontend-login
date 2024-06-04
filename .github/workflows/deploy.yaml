@@ -59,7 +59,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build . -t ${{ vars.REGISTRY_SERVER }}/${{ steps.repo-name.outputs.repo }}2:latest
+          docker build . -t ${{ vars.REGISTRY_SERVER }}/${{ steps.repo-name.outputs.repo }}:latest
           docker push ${{ vars.REGISTRY_SERVER }}/${{ steps.repo-name.outputs.repo }}:latest
 
       # # Set the target Azure Kubernetes Service (AKS) cluster. 
