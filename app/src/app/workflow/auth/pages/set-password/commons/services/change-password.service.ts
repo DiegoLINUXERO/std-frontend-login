@@ -4,21 +4,18 @@ import { Observable } from 'rxjs';
 
 
 import { environment } from 'src/environments/environment';
-import { IInfoChannelResponse } from '../../models/responses/info-response.interfaces';
+import { IChangePasswordRP, IChangePasswordRQ } from '../models/change-password.intrefaces';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ChannelInfoService {
+export class ChangePasswordService {
   constructor(private http: HttpClient) {}
 
-  getChannnelInfo(): Observable<IInfoChannelResponse> {
-    const infpForm = {
-        seed: '14bf1deb-60c4-46c1-a2f1-adb501fe759e',
-      };
-    return this.http.post<IInfoChannelResponse>(
-        `${environment.apiStd.baseURLInfo}${environment.apiStd.servicePath.infoLogin}`,
-        infpForm,
+  changePassword(request: IChangePasswordRQ): Observable<IChangePasswordRP> {
+    return this.http.post<IChangePasswordRP>(
+        `${environment.apiStd.baseURLChangePassword}${environment.apiStd.servicePath.changePassword}`,
+        request,
         { headers: this.getToken('14bf1deb-60c4-46c1-a2f1-adb501fe759e') }
       );
   }

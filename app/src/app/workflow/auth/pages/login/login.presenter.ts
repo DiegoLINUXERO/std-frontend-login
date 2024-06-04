@@ -6,9 +6,12 @@ import { ILogin } from './commons/models/ui/login.interface';
 
 // errors
 import * as errorsCatelogue from './login.errors';
+import { Keyboard } from './commons/models/responses/info-response.interfaces';
+
 
 @Injectable()
 export class LoginPresenter {
+  keyboard: Keyboard = {} as Keyboard;
   errorsCatelogue = errorsCatelogue;
 
   username = new FormControl('');
@@ -67,4 +70,20 @@ export class LoginPresenter {
 
     return msg;
   }
+
+  setKeyBoard(keyboard: Keyboard){
+    this.keyboard = keyboard;
+  } 
+  getSeed(){
+    return this.keyboard.seed;
+  }
+  getPasswordHash(password: string): string[] {
+    let arrayOfHash = [];
+    for (let char of password) {
+      let hash = this.keyboard.keys.find(item => item.value === char); 
+      arrayOfHash.push(hash?.id);
+    }
+    return arrayOfHash as [];
+  }
+
 }

@@ -15,6 +15,7 @@ import { RECAPTCHA_KEY } from '../../constants/recaptcha.constants';
 import { Router } from '@angular/router';
 import { StdDirectivesModule } from 'src/app/shared/directives/directives.module';
 import { ChannelInfoService } from '../../services/api/info.service';
+import { IInfoChannelResponse } from '../../models/responses/info-response.interfaces';
 
 @Component({
   selector: 'std-login-body',
@@ -81,8 +82,9 @@ export class LoginBodyComponent implements OnInit {
 
     this.isLoginIn = true;
     const request: ILoginUserRequest = {
+      seed: this.loginPresenter.getSeed(),
       username: this.loginPresenter.username.value as string,
-      password: this.loginPresenter.password.value as string,
+      password: this.loginPresenter.getPasswordHash(this.loginPresenter.password.value as string),
       rememberUser: this.loginPresenter.rememberUser.value as boolean,
       recaptcha: this.loginPresenter.recaptcha.value as string
     };
@@ -102,23 +104,12 @@ export class LoginBodyComponent implements OnInit {
   }
 
   loginOkResponse(response: ILoginUserResponse) {
-    console.log(response);
-    // "credentialOwner": {
-    //   "isFirstLogin": true,
-    //   "retry": 0,
-    //   "success": true
-    // },
-    // "sessionToken": {
-    //   "auth": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c3VhcmlvX2lkIjoxMjM0NTZ9.RB2kQH2N05Km1U2TCVccZ-lN72NdeZ82tJClpPj2lN8",
-    //   "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c3VhcmlvX2lkIjoxMjM0NTZ9.i0cMwI_NaKfNZ6BlOpM8fnJaOcwFxRm8mZyUfX9bUjU"
-    // }
 
     const {
       credentialOwner: { isFirstLogin, success, retry }
     } = response;
 
     this.errorRetry = retry;
-    console.log(retry);
     // case 1: Usuario nuevo 4 Digitos [newUser]
     // Se va  cambaio de pasword
     if (isFirstLogin && success && retry == 0) {
@@ -226,7 +217,9 @@ export class LoginBodyComponent implements OnInit {
 
   getUserChannelInfo() {
     this.channelInfoService.getChannnelInfo().subscribe(
-      (response) => {},
+      (response: IInfoChannelResponse)  => {
+        this.loginPresenter.setKeyBoard(response['keyboard'])
+      },
       (error: ILoginUserResponseError) => {}
     );
   }

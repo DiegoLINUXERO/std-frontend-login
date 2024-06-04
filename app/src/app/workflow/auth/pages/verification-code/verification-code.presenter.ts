@@ -11,10 +11,12 @@ import * as errorsCatelogue from './verification-code.errors';
 export class VerificationCodePresenter {
   errorsCatelogue = errorsCatelogue;
 
-  pinCode = new FormControl('');
+  pinCode = new FormControl('')
+  countdown = new FormControl('')
 
   form: FormGroup = new FormGroup({
     pinCode: this.pinCode,
+    countdown: this.countdown
   });
 
   constructor() {
@@ -29,6 +31,7 @@ export class VerificationCodePresenter {
     this.form.reset();
 
     this.pinCode.setValue(dataVerification.pinCode);
+    this.countdown.setValue('5');
 
     this.form.updateValueAndValidity();
   }

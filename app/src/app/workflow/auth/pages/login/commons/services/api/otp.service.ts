@@ -9,16 +9,14 @@ import { IInfoChannelResponse } from '../../models/responses/info-response.inter
 @Injectable({
   providedIn: 'root',
 })
-export class ChannelInfoService {
+export class OtpService {
   constructor(private http: HttpClient) {}
 
-  getChannnelInfo(): Observable<IInfoChannelResponse> {
-    const infpForm = {
-        seed: '14bf1deb-60c4-46c1-a2f1-adb501fe759e',
-      };
+  sendOtpCode(request:{}): Observable<IInfoChannelResponse> {
+  
     return this.http.post<IInfoChannelResponse>(
-        `${environment.apiStd.baseURLInfo}${environment.apiStd.servicePath.infoLogin}`,
-        infpForm,
+        `${environment.apiStd.baseURLOTP }${environment.apiStd.servicePath.otpUser}`,
+        request,
         { headers: this.getToken('14bf1deb-60c4-46c1-a2f1-adb501fe759e') }
       );
   }
